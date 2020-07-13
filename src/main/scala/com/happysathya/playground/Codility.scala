@@ -58,11 +58,11 @@ object Codility {
       var newTuple = t
       var newMin = min
       val iterator = a.iterator
-      while(iterator.hasNext) {
+      while (iterator.hasNext) {
         val head = iterator.next()
         if (iterator.hasNext)
           newTuple = (newTuple._1 + head, newTuple._2 - head)
-          newMin = Math.abs(newTuple._1 - newTuple._2) min newMin
+        newMin = Math.abs(newTuple._1 - newTuple._2) min newMin
       }
       newMin
     }
@@ -72,4 +72,9 @@ object Codility {
     val startMin = Math.abs(startTuple._1 - startTuple._2)
     tapeEquilibrium(startTuple, a.tail, startMin).toInt
   }
+
+  def smallestPositiveInteger(a: Array[Int]): Int = {
+    (Range(1, a.length + 2).toSet diff a.toSet).min
+  }
+
 }

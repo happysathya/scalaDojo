@@ -167,5 +167,14 @@ class TestPlayground extends FunSuite {
       assert(tapeEquilibrium(Array(-3, -2, -1)) == 0)
       assert(tapeEquilibrium(Array(-1, -2, 5)) == 4)
     }
+    {
+      assert(smallestPositiveInteger(Array(4, 6, 7)) == 1)
+      assert(smallestPositiveInteger(Array(-1, -3)) == 1)
+      assert(smallestPositiveInteger(Array(1, 3, 6, 4, 1, 2)) == 5)
+      assert(smallestPositiveInteger(Array(1, 2, 3)) == 4)
+      assert(smallestPositiveInteger(Array(0, -4, -3)) == 1)
+      assert(smallestPositiveInteger(Array(2)) == 1)
+    }
+
   }
 }
