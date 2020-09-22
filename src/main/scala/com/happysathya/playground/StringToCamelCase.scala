@@ -10,7 +10,7 @@ object StringToCamelCase {
 
     def singleWordToCamelCase(word: String): String = {
       word.toList match {
-        case head :: tail => head.toUpper + concat {
+        case head :: tail if tail.nonEmpty => head.toUpper + concat {
           tail
         }
         case head :: Nil => head + ""

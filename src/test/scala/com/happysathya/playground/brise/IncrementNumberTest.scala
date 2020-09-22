@@ -1,15 +1,21 @@
 package com.happysathya.playground.brise
 
 import com.happysathya.playground.brise.IncrementNumber.increment
-import org.scalatest.FunSuite
+import weaver.SimpleIOSuite
 
-class IncrementNumberTest extends FunSuite {
+object IncrementNumberTest extends SimpleIOSuite {
 
-  test("should increment sequence by 1") {
-    assert(increment(Seq(5, 4, 3)).unsafeRunSync() == Seq(5, 4, 4))
-    assert(increment(Seq(9, 9, 9, 9)).unsafeRunSync() == Seq(1, 0, 0, 0, 0))
-    assert(increment(Seq()).unsafeRunSync() == Seq())
-    assert(increment(Seq(1)).unsafeRunSync() == Seq(2))
-    assert(increment(Seq(9)).unsafeRunSync() == Seq(1, 0))
+  simpleTest("should increment sequence by 1") {
+    for {
+      a1 <- increment(Seq(5, 4, 3))
+      a2 <- increment(Seq(9, 9, 9, 9))
+      a3 <- increment(Seq())
+      a4 <- increment(Seq(1))
+      a5 <- increment(Seq(9))
+    } yield expect(a1 == Seq(5, 4, 4)) and
+      expect(a2 == Seq(1, 0, 0, 0, 0)) and
+      expect(a3 == Seq()) and
+      expect(a4 == Seq(2)) and
+      expect(a5 == Seq(1, 0))
   }
 }
