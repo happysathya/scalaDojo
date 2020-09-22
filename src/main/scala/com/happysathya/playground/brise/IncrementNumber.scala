@@ -11,9 +11,8 @@ object IncrementNumber {
     @tailrec
     def increment(items: Seq[Int], acc: Seq[Int], carry: Int): IO[Seq[Int]] = {
       (items, acc, carry) match {
-        case (Nil, Nil, _) => IO(Nil)
-        case (Nil, acc, 0) => IO(acc)
-        case (Nil, acc, _) => IO(1 +: acc)
+        case (Nil, Nil, carry) if carry == 1 => IO(Nil)
+        case (Nil, acc, carry) => if (carry == 0) IO(acc) else IO(1 +: acc)
         case (head :: tail, acc, carry) =>
           val sum = head + carry
           val (newItem, newCarry) = (sum % 10, sum / 10)
