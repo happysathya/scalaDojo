@@ -2,12 +2,14 @@ package com.happysathya.playground.brise
 
 import com.happysathya.playground.brise.IncrementNumber.increment
 import weaver.SimpleIOSuite
+import cats.implicits._
+import cats.data.ValidatedNel
 
 object IncrementNumberTest extends SimpleIOSuite {
 
   simpleTest("should increment sequence by 1") {
     for {
-      a1 <- increment(Seq(5, 4, 2))
+      a1 <- increment(Seq(5, 4, 3))
       a2 <- increment(Seq(9, 9, 9, 9))
       a3 <- increment(Seq())
       a4 <- increment(Seq(1))
