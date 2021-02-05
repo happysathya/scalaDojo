@@ -2,8 +2,6 @@ package com.happysathya.playground.brise
 
 import com.happysathya.playground.brise.IncrementNumber.increment
 import weaver.SimpleIOSuite
-import cats.implicits._
-import cats.data.ValidatedNel
 
 object IncrementNumberTest extends SimpleIOSuite {
 
