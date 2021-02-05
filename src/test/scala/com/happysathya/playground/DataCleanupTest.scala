@@ -1,6 +1,6 @@
-package com.happysathya.playground.data
+package com.happysathya.playground
 
-import com.happysathya.playground.data.DataCleanup.{emailSpecialCharactersCleanup, mergeMaps}
+import com.happysathya.playground.DataCleanup.{emailSpecialCharactersCleanup, mergeMaps}
 import org.scalatest.FunSuite
 
 class DataCleanupTest extends FunSuite {
@@ -13,10 +13,15 @@ class DataCleanupTest extends FunSuite {
   }
 
   test("should merge maps by their keys and aggregate score") {
-    assert(mergeMaps(Seq(
-      Map("100" -> 100, "11" -> 50), //union 1
-      Map("100" -> 200, "11" -> 50, "3" -> 50) //union 2
-    ), 100) == 11)
+    assert(
+      mergeMaps(
+        Seq(
+          Map("100" -> 100, "11" -> 50), //union 1
+          Map("100" -> 200, "11" -> 50, "3" -> 50) //union 2
+        ),
+        100
+      ) == 11
+    )
 
     /*
       2 => [2, 4, 6] => 2

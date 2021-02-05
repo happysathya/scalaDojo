@@ -28,8 +28,15 @@ object CodeWars {
         acc
       else {
         val numberToBeSquared = min(length, width)
-        val (newLength: Int, newWidth: Int) = if (length > width) (length - numberToBeSquared, width) else (length, width - numberToBeSquared)
-        sqInReact(newLength, newWidth, remainingArea - numberToBeSquared * numberToBeSquared, acc.appended(numberToBeSquared))
+        val (newLength: Int, newWidth: Int) =
+          if (length > width) (length - numberToBeSquared, width)
+          else (length, width - numberToBeSquared)
+        sqInReact(
+          newLength,
+          newWidth,
+          remainingArea - numberToBeSquared * numberToBeSquared,
+          acc.appended(numberToBeSquared)
+        )
       }
     }
 
@@ -52,8 +59,7 @@ object CodeWars {
   }
 
   def order(str: String): String = {
-    str
-      .trim
+    str.trim
       .split(' ')
       .filter(str => !str.isEmpty)
       .map(str => (s"${str.find(c => c.isDigit).get}$str", str))

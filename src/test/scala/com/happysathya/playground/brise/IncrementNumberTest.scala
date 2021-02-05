@@ -19,6 +19,7 @@ object IncrementNumberTest extends SimpleIOSuite {
       a2 == Seq(1, 0, 0, 0, 0),
       a3 == Seq(),
       a4 == Seq(2),
-      a5 == Seq(1, 0))
+      a5 == Seq(1, 0)
+    )
   }
 }

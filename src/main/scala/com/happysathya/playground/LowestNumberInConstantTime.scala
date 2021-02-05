@@ -11,9 +11,9 @@ class LowestNumberInConstantTime {
     if (stack.isEmpty) {
       stack.push((value, value))
     } else {
-      val top = stack.top
+      val top            = stack.top
       val lastElementLow = top._2
-      val newLow = if (value < lastElementLow) value else lastElementLow
+      val newLow         = if (value < lastElementLow) value else lastElementLow
       stack.push((value, newLow))
     }
   }

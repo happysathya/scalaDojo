@@ -44,19 +44,22 @@ object DataStructureDecisionForJava {
 
   def decision(problem: Problem): Decision = {
     problem match {
-      case Problem(KeyValuePair, order, _) => order match {
-        case InsertionOrdering => LinkedHashMap
-        case SortedOrdering => TreeMap
-        case AnyOrdering => HashMap
-      }
-      case Problem(ValuesWithoutDuplicates, order, task) => (order, task) match {
-        case (_, AnyTask) => ArrayList
-        case (order, SearchAndRemove) => order match {
-          case InsertionOrdering => LinkedHashSet
-          case SortedOrdering => TreeSet
-          case AnyOrdering => HashSet
+      case Problem(KeyValuePair, order, _) =>
+        order match {
+          case InsertionOrdering => LinkedHashMap
+          case SortedOrdering    => TreeMap
+          case AnyOrdering       => HashMap
         }
-      }
+      case Problem(ValuesWithoutDuplicates, order, task) =>
+        (order, task) match {
+          case (_, AnyTask) => ArrayList
+          case (order, SearchAndRemove) =>
+            order match {
+              case InsertionOrdering => LinkedHashSet
+              case SortedOrdering    => TreeSet
+              case AnyOrdering       => HashSet
+            }
+        }
       case Problem(ValuesWithDuplicates, _, _) => ArrayList
     }
   }

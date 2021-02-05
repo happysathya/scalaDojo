@@ -1,9 +1,9 @@
-package com.happysathya.playground.cats
-
-import java.time.{Clock, Instant, ZoneId}
+package com.happysathya.playground
 
 import cats.effect.{IO, Resource}
 import weaver.IOSuite
+
+import java.time.{Clock, Instant, ZoneId}
 
 object ScalaTimeImplTest extends IOSuite {
 

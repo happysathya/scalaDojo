@@ -104,7 +104,11 @@ class TestPlayground extends FunSuite {
 
     assert(decision(Problem(ValuesWithoutDuplicates, AnyOrdering, AnyTask)) == ArrayList)
     assert(decision(Problem(ValuesWithoutDuplicates, AnyOrdering, SearchAndRemove)) == HashSet)
-    assert(decision(Problem(ValuesWithoutDuplicates, InsertionOrdering, SearchAndRemove)) == LinkedHashSet)
+    assert(
+      decision(
+        Problem(ValuesWithoutDuplicates, InsertionOrdering, SearchAndRemove)
+      ) == LinkedHashSet
+    )
     assert(decision(Problem(ValuesWithoutDuplicates, SortedOrdering, SearchAndRemove)) == TreeSet)
 
   }
@@ -186,7 +190,8 @@ class TestPlayground extends FunSuite {
       assert(isSorted(Array(1), ordered))
     }
     {
-      val ordered: (String, String) => Boolean = (a: String, b: String) => if (b >= a) true else false
+      val ordered: (String, String) => Boolean =
+        (a: String, b: String) => if (b >= a) true else false
       assert(isSorted(Array("a", "aa", "aaa"), ordered))
       assert(isSorted(Array("ab", "ac", "ac", "ad"), ordered))
       assert(!isSorted(Array("ab", "aa", "ac", "ad"), ordered))

@@ -10,19 +10,21 @@ object StringToCamelCase {
 
     def singleWordToCamelCase(word: String): String = {
       word.toList match {
-        case head :: tail if tail.nonEmpty => head.toUpper + concat {
-          tail
-        }
+        case head :: tail if tail.nonEmpty =>
+          head.toUpper + concat {
+            tail
+          }
         case head :: Nil => head + ""
       }
     }
 
     str.split("[-_]").toList match {
-      case Nil => ""
+      case Nil         => ""
       case head :: Nil => head
-      case head :: tail => head + concat {
-        tail.map(s => singleWordToCamelCase(s))
-      }
+      case head :: tail =>
+        head + concat {
+          tail.map(s => singleWordToCamelCase(s))
+        }
     }
   }
 }

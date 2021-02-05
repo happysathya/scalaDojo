@@ -7,7 +7,8 @@ object ListCalculator {
   def divide(data: List[Int]): Double = {
     data match {
       case Nil => 0
-      case head :: tail => tail.foldLeft(head.toDouble)((result: Double, item: Int) => result / item)
+      case head :: tail =>
+        tail.foldLeft(head.toDouble)((result: Double, item: Int) => result / item)
     }
   }
 
@@ -16,7 +17,7 @@ object ListCalculator {
     @tailrec
     def productInternal(data: List[Int], acc: Long): Long = {
       data match {
-        case Nil => acc
+        case Nil          => acc
         case head :: tail => productInternal(tail, acc * head)
       }
     }
@@ -29,7 +30,7 @@ object ListCalculator {
     @tailrec
     def sumInternal(data: List[Int], acc: Long): Long = {
       data match {
-        case Nil => acc
+        case Nil          => acc
         case head :: tail => sumInternal(tail, acc + head)
       }
     }

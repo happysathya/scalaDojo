@@ -17,9 +17,9 @@ object Codility {
 
     def binaryGap(binaryString: Array[Char], prevMaxLength: Int, currentLength: Int): Int = {
       binaryString.headOption match {
-        case None => prevMaxLength
+        case None      => prevMaxLength
         case Some('1') => binaryGap(binaryString.tail, currentLength max prevMaxLength, 0)
-        case Some(_) => binaryGap(binaryString.tail, prevMaxLength, currentLength + 1)
+        case Some(_)   => binaryGap(binaryString.tail, prevMaxLength, currentLength + 1)
       }
     }
 
@@ -29,12 +29,13 @@ object Codility {
   def rightShiftByNTimes(array: Array[Int], k: Int): Array[Int] = {
     if (k == 0)
       array
-    else array match {
-      case a if a.isEmpty || a.tail.isEmpty => a
-      case a =>
-        val b = a.reverse
-        rightShiftByNTimes(b.head +: b.tail.reverse, k - 1)
-    }
+    else
+      array match {
+        case a if a.isEmpty || a.tail.isEmpty => a
+        case a =>
+          val b = a.reverse
+          rightShiftByNTimes(b.head +: b.tail.reverse, k - 1)
+      }
   }
 
   def unpaired(a: Array[Int]): Int = {
@@ -43,9 +44,9 @@ object Codility {
 
   def frogJump(x: Int, y: Int, d: Int): Int = {
     (y - x) / d + (if ((y - x) % d == 0)
-      0
-    else
-      1)
+                     0
+                   else
+                     1)
   }
 
   def missingElement(a: Array[Int]): Int = {
@@ -56,7 +57,7 @@ object Codility {
 
     def tapeEquilibrium(t: (Long, Long), a: Array[Int], min: Long): Long = {
       var newTuple = t
-      var newMin = min
+      var newMin   = min
       val iterator = a.iterator
       while (iterator.hasNext) {
         val head = iterator.next()
@@ -67,9 +68,9 @@ object Codility {
       newMin
     }
 
-    val sum = a.map(_.toLong).sum
+    val sum        = a.map(_.toLong).sum
     val startTuple = (a.head.toLong, sum - a.head)
-    val startMin = Math.abs(startTuple._1 - startTuple._2)
+    val startMin   = Math.abs(startTuple._1 - startTuple._2)
     tapeEquilibrium(startTuple, a.tail, startMin).toInt
   }
 
@@ -77,11 +78,11 @@ object Codility {
     (Range(1, a.length + 2).toSet diff a.toSet).min
   }
 
-  def isSorted[A](as: Array[A], ordered: (A,A) => Boolean): Boolean = {
+  def isSorted[A](as: Array[A], ordered: (A, A) => Boolean): Boolean = {
     as.foldLeft((true, Option.empty[A]))((lastResult, value) => {
       lastResult match {
-        case (true, None) => (true, Some(value))
-        case (false, _) => (false, Some(value))
+        case (true, None)       => (true, Some(value))
+        case (false, _)         => (false, Some(value))
         case (true, Some(data)) => (ordered(data, value), Some(value))
       }
     })._1

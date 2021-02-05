@@ -19,8 +19,7 @@ object StringZipOptimiser {
       } else {
         if (current == 0) {
           zip(current + 1, 1, "")
-        }
-        else {
+        } else {
           if (s.charAt(current) != s.charAt(current - 1)) {
             zip(current + 1, 1, s"${acc}${s.charAt(current - 1)}$lastCharLength")
           } else {
