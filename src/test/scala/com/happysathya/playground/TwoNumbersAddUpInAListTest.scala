@@ -13,12 +13,12 @@ object TwoNumbersAddUpInAListTest extends SimpleIOSuite {
       result5 <- TwoNumbersAddUpInAList.isTwoNumbersAddUpTo(List(5, 0, 1, 2), 5)
       result6 <- TwoNumbersAddUpInAList.isTwoNumbersAddUpTo(List(10, -2, 1, 2), 8)
     } yield expect.all(
-      result1 == true,
-      result2 == true,
-      result3 == false,
-      result4 == true,
-      result5 == true,
-      result6 == true
+      result1,
+      result2,
+      !result3,
+      result4,
+      result5,
+      result6
     )
   }
 }
