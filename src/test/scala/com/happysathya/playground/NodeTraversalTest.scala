@@ -5,7 +5,7 @@ import weaver.SimpleIOSuite
 
 object NodeTraversalTest extends SimpleIOSuite {
 
-  simpleTest("traverse tree using recursion") {
+  simpleTest("traverse tree using recursion and mutable queue") {
     for {
       result1 <- NodeTraversal.traverseUsingRecursionAndMutableQueue(Node(10))
       result2 <- NodeTraversal.traverseUsingRecursionAndMutableQueue(
