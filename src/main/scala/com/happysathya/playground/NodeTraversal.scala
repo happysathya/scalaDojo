@@ -21,4 +21,19 @@ object NodeTraversal {
 
     IO(queue.dequeueAll(_ => true).toList)
   }
+
+  def breadthFirstTraversal(rootNode: Node): IO[List[Int]] = {
+    val dataQueue = new mutable.Queue[Int]()
+    val traversalQueue = new mutable.Queue[Node]()
+    traversalQueue.enqueue(rootNode)
+
+    while(traversalQueue.nonEmpty) {
+      val nodeAtTop = traversalQueue.dequeue()
+      dataQueue.enqueue(nodeAtTop.data)
+      nodeAtTop.left.foreach(node => traversalQueue.enqueue(node))
+      nodeAtTop.right.foreach(node => traversalQueue.enqueue(node))
+    }
+
+    IO(dataQueue.dequeueAll(_ => true).toList)
+  }
 }

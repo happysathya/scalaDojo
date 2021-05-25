@@ -36,4 +36,22 @@ object NodeTraversalTest extends SimpleIOSuite {
       result4 == List(10, 20, 40, 80, 90, 50, 30, 60, 70)
     )
   }
+
+  simpleTest("breadth first traversal") {
+    for {
+      result1 <- NodeTraversal.breadthFirstTraversal(
+        Node(
+          10,
+          Node(20, Node(40, Node(80), Node(90)), Node(50)),
+          Node(30, Node(60), Node(70))
+        )
+      )
+      result2 <- NodeTraversal.breadthFirstTraversal(
+        Node(10)
+      )
+    } yield expect.all(
+      result1 == List(10, 20, 30, 40, 50, 60, 70, 80, 90),
+      result2 == List(10)
+    )
+  }
 }
