@@ -2,13 +2,22 @@ package com.happysathya.playground
 
 import cats.effect.IO
 
+import java.util
+import java.util.UUID
 import scala.collection.mutable
+import scala.jdk.CollectionConverters.CollectionHasAsScala
 
-case class Node (data: Int, left: Option[Node] = None, right: Option[Node] = None)
+case class Node (data: Int, left: Option[Node], right: Option[Node], key: UUID)
+
+object Node {
+  def apply(data: Int, left: Option[Node] = None, right: Option[Node] = None): Node = {
+    Node(data, left, right, key = UUID.randomUUID())
+  }
+}
 
 object NodeTraversal {
 
-  def traverseUsingRecursionAndMutableQueue(rootNode: Node): IO[List[Int]] = {
+  def binaryTreeTraverseUsingRecursionAndMutableQueue(rootNode: Node): IO[List[Int]] = {
     val queue = new mutable.Queue[Int]()
 
     def traverse(node: Node): Unit = {
@@ -22,7 +31,7 @@ object NodeTraversal {
     IO(queue.dequeueAll(_ => true).toList)
   }
 
-  def breadthFirstTraversal(rootNode: Node): IO[List[Int]] = {
+  def breadthFirstTraversalBinaryTree(rootNode: Node): IO[List[Int]] = {
     val dataQueue = new mutable.Queue[Int]()
     val traversalQueue = new mutable.Queue[Node]()
     traversalQueue.enqueue(rootNode)
@@ -35,5 +44,26 @@ object NodeTraversal {
     }
 
     IO(dataQueue.dequeueAll(_ => true).toList)
+  }
+
+  def depthFirstSearchBinaryTree(rootNode: Node): IO[List[Int]] = {
+    val dataStack = new mutable.Stack[Node]()
+    val visited = new util.LinkedHashMap[UUID, Int]()
+
+    dataStack.push(rootNode)
+    while (dataStack.nonEmpty) {
+      visited.put(dataStack.top.key, dataStack.top.data)
+      dataStack.top.left match {
+        case Some(value) if !visited.containsKey(value.key) => dataStack.push(value)
+        case _ =>
+          val poppedNode = dataStack.pop()
+          poppedNode.right match {
+            case Some(value) if !visited.containsKey(value.key) => dataStack.push(value)
+            case _ => ()
+          }
+      }
+    }
+
+    IO(visited.values().asScala.toList)
   }
 }
