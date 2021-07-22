@@ -7,11 +7,11 @@ import java.util.UUID
 import scala.collection.mutable
 import scala.jdk.CollectionConverters.CollectionHasAsScala
 
-case class Node (data: Int, left: Option[Node], right: Option[Node], key: UUID)
+case class Node (data: Int, left: Option[Node], right: Option[Node], identifier: UUID)
 
 object Node {
   def apply(data: Int, left: Option[Node] = None, right: Option[Node] = None): Node = {
-    Node(data, left, right, key = UUID.randomUUID())
+    Node(data, left, right, identifier = UUID.randomUUID())
   }
 }
 
@@ -52,13 +52,13 @@ object NodeTraversal {
 
     dataStack.push(rootNode)
     while (dataStack.nonEmpty) {
-      visited.put(dataStack.top.key, dataStack.top.data)
+      visited.put(dataStack.top.identifier, dataStack.top.data)
       dataStack.top.left match {
-        case Some(value) if !visited.containsKey(value.key) => dataStack.push(value)
+        case Some(value) if !visited.containsKey(value.identifier) => dataStack.push(value)
         case _ =>
           val poppedNode = dataStack.pop()
           poppedNode.right match {
-            case Some(value) if !visited.containsKey(value.key) => dataStack.push(value)
+            case Some(value) if !visited.containsKey(value.identifier) => dataStack.push(value)
             case _ => ()
           }
       }
