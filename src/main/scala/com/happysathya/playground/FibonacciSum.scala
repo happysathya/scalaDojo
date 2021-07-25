@@ -19,6 +19,23 @@ object FibonacciSum {
     }
   }
 
+  def fibonacciSumUsingIterative(n: Int): IO[Long] = {
+    var previous, sum = 0L
+    for {
+      _ <- IO.raiseWhen(n < 0)(new RuntimeException(s"n cannot be negative"))
+      _ <- {
+        for (i <- 0.to(n)) {
+          val (p: Long, s: Long) = i match {
+            case 0 | 1 => (previous, sum + i)
+            case _     => (sum, sum + previous)
+          }
+          previous = p; sum = s
+        }
+        IO.pure(sum)
+      }
+    } yield sum
+  }
+
   def fibonacciSumUsingTailRecursion(n: Int): IO[Long] = {
 
     @tailrec
