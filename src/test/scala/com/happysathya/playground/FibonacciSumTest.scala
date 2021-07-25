@@ -26,14 +26,14 @@ object FibonacciSumTest extends SimpleIOSuite {
   }
 
   simpleTest("fibonacci sum using recursion") {
-    
+    import FibonacciSum.{fibonacciSumUsingRecursion => fibonacciSum}
     for {
-      result1 <- FibonacciSum.fibonacciSumUsingRecursion(0)
-      result2 <- FibonacciSum.fibonacciSumUsingRecursion(1)
-      result3 <- FibonacciSum.fibonacciSumUsingRecursion(2)
-      result4 <- FibonacciSum.fibonacciSumUsingRecursion(5)
-      result5 <- FibonacciSum.fibonacciSumUsingRecursion(6)
-      result6 <- FibonacciSum.fibonacciSumUsingRecursion(-1).attempt
+      result1 <- fibonacciSum(0)
+      result2 <- fibonacciSum(1)
+      result3 <- fibonacciSum(2)
+      result4 <- fibonacciSum(5)
+      result5 <- fibonacciSum(6)
+      result6 <- fibonacciSum(-1).attempt
     } yield {
       expect.all(
         result1 == 0,
@@ -47,13 +47,14 @@ object FibonacciSumTest extends SimpleIOSuite {
   }
 
   simpleTest("fibonacci sum using tail recursion") {
+    import FibonacciSum.{fibonacciSumUsingTailRecursion => fibonacciSum}
     for {
-      result1 <- FibonacciSum.fibonacciSumUsingTailRecursion(0)
-      result2 <- FibonacciSum.fibonacciSumUsingTailRecursion(1)
-      result3 <- FibonacciSum.fibonacciSumUsingTailRecursion(2)
-      result4 <- FibonacciSum.fibonacciSumUsingTailRecursion(5)
-      result5 <- FibonacciSum.fibonacciSumUsingTailRecursion(6)
-      result6 <- FibonacciSum.fibonacciSumUsingTailRecursion(-1).attempt
+      result1 <- fibonacciSum(0)
+      result2 <- fibonacciSum(1)
+      result3 <- fibonacciSum(2)
+      result4 <- fibonacciSum(5)
+      result5 <- fibonacciSum(6)
+      result6 <- fibonacciSum(-1).attempt
     } yield {
       expect.all(
         result1 == 0,
