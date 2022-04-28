@@ -4,7 +4,7 @@ import weaver.SimpleIOSuite
 
 object GcdAndLcmEuclideanTest extends SimpleIOSuite {
 
-  simpleTest("greatest common divisor using euclidean algorithm") {
+  test("greatest common divisor using euclidean algorithm") {
     for {
       result1 <- GcdAndLcmEuclidean.greatestCommonDivisor(48, 14)
       result2 <- GcdAndLcmEuclidean.greatestCommonDivisor(18, 48)
@@ -24,7 +24,7 @@ object GcdAndLcmEuclideanTest extends SimpleIOSuite {
     )
   }
 
-  simpleTest("least common multiplier using euclidean algorithm") {
+  test("least common multiplier using euclidean algorithm") {
     for {
       result1 <- GcdAndLcmEuclidean.leastCommonMultiple(21, 6)
       result2 <- GcdAndLcmEuclidean.leastCommonMultiple(48, 14)

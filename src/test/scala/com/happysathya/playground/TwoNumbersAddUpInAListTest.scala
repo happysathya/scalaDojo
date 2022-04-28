@@ -4,7 +4,7 @@ import weaver.SimpleIOSuite
 
 object TwoNumbersAddUpInAListTest extends SimpleIOSuite {
 
-  simpleTest("Should return boolean if TwoNumbersAddUpTo a sum in a list") {
+  test("Should return boolean if TwoNumbersAddUpTo a sum in a list") {
     for {
       result1 <- TwoNumbersAddUpInAList.isTwoNumbersAddUpTo(List(1, 2, 3), 5)
       result2 <- TwoNumbersAddUpInAList.isTwoNumbersAddUpTo(List(1, 2, 3), 4)

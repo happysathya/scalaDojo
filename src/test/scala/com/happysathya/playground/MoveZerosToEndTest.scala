@@ -1,9 +1,9 @@
 package com.happysathya.playground
 
 import com.happysathya.playground.MoveZerosToEnd.moveZerosToEnd
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class MoveZerosToEndTest extends FunSuite {
+class MoveZerosToEndTest extends AnyFunSuite {
 
   test("should move zeroes to end of list") {
     assert(moveZerosToEnd(List(1, 2, 3)) == List(1, 2, 3))

@@ -1,9 +1,9 @@
 package com.happysathya.playground
 
 import com.happysathya.playground.DataCleanup.{emailSpecialCharactersCleanup, mergeMaps}
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class DataCleanupTest extends FunSuite {
+class DataCleanupTest extends AnyFunSuite {
 
   test("should cleanup email special characters") {
     assert(emailSpecialCharactersCleanup("abcd@efg.com") == "abcd@efg.com")

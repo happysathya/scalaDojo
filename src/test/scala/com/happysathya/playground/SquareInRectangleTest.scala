@@ -1,9 +1,9 @@
 package com.happysathya.playground
 
 import com.happysathya.playground.SquareInRectangle.sqInRect
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class SquareInRectangleTest extends FunSuite {
+class SquareInRectangleTest extends AnyFunSuite {
 
   test("SquareInRectangle") {
     assert(sqInRect(5, 3) sameElements Array(3, 2, 1, 1))

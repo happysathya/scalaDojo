@@ -1,9 +1,9 @@
 package com.happysathya.playground
 
 import com.happysathya.playground.MissingElement.missingElement
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class MissingElementTest extends FunSuite {
+class MissingElementTest extends AnyFunSuite {
 
   test("MissingElement") {
     assert(missingElement(Array(2, 3, 1, 5)) == 4)

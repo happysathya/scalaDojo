@@ -1,9 +1,9 @@
 package com.happysathya.playground
 
 import com.happysathya.playground.StringZipOptimiser.optimisedZip
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class StringZipOptimiserTest extends FunSuite {
+class StringZipOptimiserTest extends AnyFunSuite {
 
   test("should return optimised string after removing n characters") {
     assert(optimisedZip("aaaabbbbaaaaacc", 4) == ("a9c2", (4, 7)))

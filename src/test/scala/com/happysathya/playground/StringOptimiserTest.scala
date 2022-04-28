@@ -4,7 +4,7 @@ import weaver.SimpleIOSuite
 
 object StringOptimiserTest extends SimpleIOSuite {
 
-  simpleTest("String optimise") {
+  test("String optimise") {
     for {
       result1 <- StringOptimiser.optimise("")
       result2 <- StringOptimiser.optimise("aa")

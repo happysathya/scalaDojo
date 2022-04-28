@@ -5,7 +5,7 @@ import weaver.SimpleIOSuite
 
 object MaxCountersTest extends SimpleIOSuite {
 
-  simpleTest("MaxCounters") {
+  test("MaxCounters") {
     for {
       result1 <- maxCounters(5, Array(3, 4, 4, 6, 1, 4, 4))
       result2 <- maxCounters(2, Array())

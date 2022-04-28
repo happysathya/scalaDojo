@@ -1,9 +1,9 @@
 package com.happysathya.playground
 
 import com.happysathya.playground.TapeEquilibrium.tapeEquilibrium
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class TapeEquilibriumTest extends FunSuite {
+class TapeEquilibriumTest extends AnyFunSuite {
 
   test("TapeEquilibrium") {
     assert(tapeEquilibrium(Array(3, 1, 2, 4, 3)) == 1)

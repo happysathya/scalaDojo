@@ -1,9 +1,9 @@
 package com.happysathya.playground
 
 import com.happysathya.playground.StringToCamelCase.toCamelCase
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class StringToCamelCaseTest extends FunSuite {
+class StringToCamelCaseTest extends AnyFunSuite {
 
   test("should convert strings with dash and underscore delimited to camel case") {
     assert(toCamelCase("The_Stealth_Warrior") == "TheStealthWarrior")

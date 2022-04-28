@@ -1,9 +1,9 @@
 package com.happysathya.playground
 
 import com.happysathya.playground.BinaryGap.binaryGap
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class BinaryGapTest extends FunSuite {
+class BinaryGapTest extends AnyFunSuite {
 
   test("BinaryGap") {
     assert(binaryGap(0) == 0)

@@ -2,9 +2,9 @@ package com.happysathya.playground
 
 import com.happysathya.playground.FirstUniqueCharacter.findFirstUniqueCharacter
 import com.happysathya.playground.FirstUniqueCharacter.findFirstUniqueCharacterUsingLinkedHashMap
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class FirstUniqueCharacterTest extends FunSuite {
+class FirstUniqueCharacterTest extends AnyFunSuite {
 
   test("findFirstUniqueCharacter") {
     {

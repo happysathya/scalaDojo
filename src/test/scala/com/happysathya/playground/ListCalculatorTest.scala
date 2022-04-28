@@ -1,8 +1,8 @@
 package com.happysathya.playground
 
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class ListCalculatorTest extends FunSuite {
+class ListCalculatorTest extends AnyFunSuite {
 
   test("ListCalculator") {
     {

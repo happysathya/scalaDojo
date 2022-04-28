@@ -1,9 +1,9 @@
 package com.happysathya.playground
 
 import com.happysathya.playground.RightShiftByNTimes.rightShiftByNTimes
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class RightShiftByNTimesTest extends FunSuite {
+class RightShiftByNTimesTest extends AnyFunSuite {
 
   test("RightShiftByNTimes") {
     assert(rightShiftByNTimes(Array(3, 8, 9, 7, 6), 3) sameElements Array(9, 7, 6, 3, 8))

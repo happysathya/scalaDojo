@@ -5,7 +5,7 @@ import weaver.SimpleIOSuite
 
 object IncrementNumberTest extends SimpleIOSuite {
 
-  simpleTest("should increment sequence by 1") {
+  test("should increment sequence by 1") {
     for {
       a1 <- increment(Seq(5, 4, 3))
       a2 <- increment(Seq(9, 9, 9, 9))

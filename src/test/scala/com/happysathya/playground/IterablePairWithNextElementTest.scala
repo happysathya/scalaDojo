@@ -1,9 +1,9 @@
 package com.happysathya.playground
 
 import com.happysathya.playground.IterablePairWithNextElement.pairWithNextElement
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class IterablePairWithNextElementTest extends FunSuite {
+class IterablePairWithNextElementTest extends AnyFunSuite {
 
   test("pair with next element") {
     assert(pairWithNextElement(List.empty[Int]) == List.empty)

@@ -9,7 +9,7 @@ object NodeTraversalTest extends SimpleIOSuite {
 
   implicit def _some(node: Node): Option[Node] = node.some
 
-  simpleTest("traverse tree using recursion and mutable queue of a binary tree") {
+  test("traverse tree using recursion and mutable queue of a binary tree") {
     for {
       result1 <- NodeTraversal.binaryTreeTraverseUsingRecursionAndMutableQueue(Node(10))
       result2 <- NodeTraversal.binaryTreeTraverseUsingRecursionAndMutableQueue(
@@ -37,7 +37,7 @@ object NodeTraversalTest extends SimpleIOSuite {
     )
   }
 
-  simpleTest("breadth first traversal of a binary tree") {
+  test("breadth first traversal of a binary tree") {
     for {
       result1 <- NodeTraversal.breadthFirstTraversalBinaryTree(
         Node(
@@ -55,7 +55,7 @@ object NodeTraversalTest extends SimpleIOSuite {
     )
   }
 
-  simpleTest("depth first traversal of a binary tree") {
+  test("depth first traversal of a binary tree") {
     for {
       result1 <- NodeTraversal.depthFirstSearchBinaryTree(
         Node(

@@ -1,9 +1,9 @@
 package com.happysathya.playground
 
 import com.happysathya.playground.SmallPositiveInteger.smallestPositiveInteger
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class SmallPositiveIntegerTest extends FunSuite {
+class SmallPositiveIntegerTest extends AnyFunSuite {
 
   test("SmallestPositiveInteger") {
     assert(smallestPositiveInteger(Array(4, 6, 7)) == 1)

@@ -1,9 +1,9 @@
 package com.happysathya.playground
 
 import com.happysathya.playground.DataStructureDecisionForJava.decision
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class DataStructureDecisionForJavaTest extends FunSuite {
+class DataStructureDecisionForJavaTest extends AnyFunSuite {
 
   test("DataStructureDecisionForJava") {
     assert(decision(Problem(KeyValuePair, AnyOrdering)) == HashMap)

@@ -4,7 +4,7 @@ import weaver.SimpleIOSuite
 
 object FibonacciSumTest extends SimpleIOSuite {
 
-  simpleTest("fibonacci sum using iterative") {
+  test("fibonacci sum using iterative") {
     import FibonacciSum.{fibonacciSumUsingIterative => fibonacciSum}
     for {
       result1 <- fibonacciSum(0)
@@ -25,7 +25,7 @@ object FibonacciSumTest extends SimpleIOSuite {
     }
   }
 
-  simpleTest("fibonacci sum using recursion") {
+  test("fibonacci sum using recursion") {
     import FibonacciSum.{fibonacciSumUsingRecursion => fibonacciSum}
     for {
       result1 <- fibonacciSum(0)
@@ -46,7 +46,7 @@ object FibonacciSumTest extends SimpleIOSuite {
     }
   }
 
-  simpleTest("fibonacci sum using tail recursion") {
+  test("fibonacci sum using tail recursion") {
     import FibonacciSum.{fibonacciSumUsingTailRecursion => fibonacciSum}
     for {
       result1 <- fibonacciSum(0)

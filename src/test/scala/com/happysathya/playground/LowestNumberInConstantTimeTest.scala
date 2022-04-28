@@ -1,8 +1,8 @@
 package com.happysathya.playground
 
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class LowestNumberInConstantTimeTest extends FunSuite {
+class LowestNumberInConstantTimeTest extends AnyFunSuite {
 
   test("LowestNumberInConstantTime") {
     {

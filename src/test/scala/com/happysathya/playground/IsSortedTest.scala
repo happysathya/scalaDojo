@@ -1,9 +1,9 @@
 package com.happysathya.playground
 
 import com.happysathya.playground.IsSorted.isSorted
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class IsSortedTest extends FunSuite {
+class IsSortedTest extends AnyFunSuite {
 
   test("IsSorted for type Int") {
     val ordered: (Int, Int) => Boolean = (a: Int, b: Int) => if (b >= a) true else false
