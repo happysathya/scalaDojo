@@ -7,7 +7,7 @@ import java.util.UUID
 import scala.collection.mutable
 import scala.jdk.CollectionConverters.CollectionHasAsScala
 
-case class Node (data: Int, left: Option[Node], right: Option[Node], identifier: UUID)
+case class Node(data: Int, left: Option[Node], right: Option[Node], identifier: UUID)
 
 object Node {
   def apply(data: Int, left: Option[Node] = None, right: Option[Node] = None): Node = {
@@ -32,11 +32,11 @@ object NodeTraversal {
   }
 
   def breadthFirstTraversalBinaryTree(rootNode: Node): IO[List[Int]] = {
-    val dataQueue = new mutable.Queue[Int]()
+    val dataQueue      = new mutable.Queue[Int]()
     val traversalQueue = new mutable.Queue[Node]()
     traversalQueue.enqueue(rootNode)
 
-    while(traversalQueue.nonEmpty) {
+    while (traversalQueue.nonEmpty) {
       val nodeAtTop = traversalQueue.dequeue()
       dataQueue.enqueue(nodeAtTop.data)
       nodeAtTop.left.foreach(node => traversalQueue.enqueue(node))
@@ -48,7 +48,7 @@ object NodeTraversal {
 
   def depthFirstSearchBinaryTree(rootNode: Node): IO[List[Int]] = {
     val dataStack = new mutable.Stack[Node]()
-    val visited = new util.LinkedHashMap[UUID, Int]()
+    val visited   = new util.LinkedHashMap[UUID, Int]()
 
     dataStack.push(rootNode)
     while (dataStack.nonEmpty) {
@@ -59,7 +59,7 @@ object NodeTraversal {
           val poppedNode = dataStack.pop()
           poppedNode.right match {
             case Some(value) if !visited.containsKey(value.identifier) => dataStack.push(value)
-            case _ => ()
+            case _                                                     => ()
           }
       }
     }
