@@ -20,7 +20,7 @@ object GcdAndLcmEuclideanTest extends SimpleIOSuite {
       result4 == 1,
       result5 == 1,
       result6 == 5,
-      result7 == 1,
+      result7 == 1
     )
   }
 
@@ -30,7 +30,7 @@ object GcdAndLcmEuclideanTest extends SimpleIOSuite {
       result2 <- GcdAndLcmEuclidean.leastCommonMultiple(48, 14)
     } yield expect.all(
       result1 == 42,
-      result2 == 336,
+      result2 == 336
     )
   }
 }
