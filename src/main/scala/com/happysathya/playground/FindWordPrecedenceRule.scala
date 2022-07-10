@@ -9,18 +9,16 @@ object FindWordPrecedenceRule {
     @tailrec
     def findWord(
       rules: List[String],
-      ruleMap: Map[Char, Char],
-      leastElements: Set[Char]
-    ): (Map[Char, Char], Set[Char]) = {
+      ruleMap: Map[String, String],
+      leastElements: Set[String]
+    ): (Map[String, String], Set[String]) = {
       val pattern = "(.)>(.)".r
       rules match {
         case ::(rule, remainingRules) =>
           rule match {
             case pattern(left, right) =>
-              val leftChar   = left.charAt(0)
-              val rightChar  = right.charAt(0)
-              val leftRight  = Set(leftChar, rightChar)
-              val newRuleMap = ruleMap.+(leftChar -> rightChar)
+              val leftRight  = Set(left, right)
+              val newRuleMap = ruleMap.+(left -> right)
               val updatedLeastElements =
                 leastElements.union(leftRight) -- leastElements.intersect(leftRight)
               findWord(remainingRules, newRuleMap, updatedLeastElements)
@@ -34,7 +32,7 @@ object FindWordPrecedenceRule {
     val startElementMaybe        = leastElements.find(element => ruleMap.contains(element))
 
     @tailrec
-    def traverseRuleMap(startElement: Char, stringAcc: String): String = {
+    def traverseRuleMap(startElement: String, stringAcc: String): String = {
       ruleMap.get(startElement) match {
         case Some(value) =>
           traverseRuleMap(value, stringAcc + startElement)
