@@ -1,7 +1,7 @@
 package com.happysathya.playground
 
 import cats.data.{IndexedStateT, State, StateT}
-import cats.effect.IO
+import cats.effect.{unsafe, IO}
 
 import scala.util.Random
 
@@ -46,7 +46,7 @@ object AppMain extends App {
   private val value2: List[Int] = StateMonad.someRandom()
   println(value1)
   println(value2)
-
-  private val valueT: List[Int] = StateMonad.someRandomT().unsafeRunSync()
+  val runtime                   = cats.effect.unsafe.IORuntime.global
+  private val valueT: List[Int] = StateMonad.someRandomT().unsafeRunSync()(runtime)
   println(valueT)
 }

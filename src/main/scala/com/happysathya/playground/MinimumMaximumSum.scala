@@ -16,9 +16,9 @@ object MinimumMaximumSum {
       if (arr.isEmpty)
         (sum - maximum, sum - minimum)
       else {
-        val item       = arr.head
-        val newMinimum = if (minimum == 0 || item < minimum) item else minimum
-        val newMaximum = if (maximum == 0 || item > maximum) item else maximum
+        val item             = arr.head
+        val newMinimum: Long = if (minimum == 0 || item < minimum) item else minimum
+        val newMaximum: Long = if (maximum == 0 || item > maximum) item else maximum
         minimumMaximumSum(arr.tail, sum + item, newMinimum, newMaximum)
       }
     }
