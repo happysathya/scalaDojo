@@ -16,12 +16,11 @@ object DataCleanup:
       .map(email =>
         val atIndex = email.indexOf("@")
         if atIndex == -1 then email
-        else {
+        else
           val emailBeforeAt = email.substring(0, atIndex)
           val emailAfterAt  = email.substring(atIndex)
 
           emailBeforeAt.replaceAll("[-/.]", "") + emailAfterAt
-        }
       )
       .orNull
 
