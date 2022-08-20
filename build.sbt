@@ -10,3 +10,5 @@ libraryDependencies += "org.typelevel" %% "cats-core" % "2.7.0"
 
 libraryDependencies +=  "com.disneystreaming" %% "weaver-cats" % "0.7.13" % Test
 testFrameworks += new TestFramework("weaver.framework.CatsEffect")
+
+addCommandAlias(name = "validate", value = "clean; test:test")

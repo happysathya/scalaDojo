@@ -1,8 +1,8 @@
 package com.happysathya.playground
 
-object WordOrdering {
+object WordOrdering:
 
-  def order(str: String): String = {
+  def order(str: String): String =
     str.trim
       .split(' ')
       .filter(str => str.nonEmpty)
@@ -10,6 +10,3 @@ object WordOrdering {
       .sortBy(t => t._1)
       .map(t => t._2)
       .mkString(" ")
-  }
-
-}

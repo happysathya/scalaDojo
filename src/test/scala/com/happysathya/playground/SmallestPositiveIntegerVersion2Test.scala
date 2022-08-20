@@ -3,7 +3,7 @@ package com.happysathya.playground
 import com.happysathya.playground.SmallestPositiveIntegerVersion2.smallestPositiveInteger
 import org.scalatest.funsuite.AnyFunSuite
 
-class SmallestPositiveIntegerVersion2Test extends AnyFunSuite {
+class SmallestPositiveIntegerVersion2Test extends AnyFunSuite:
 
   test("SmallestPositiveInteger") {
     assert(smallestPositiveInteger(Range.inclusive(-1000000, 1000000)) == 1000001)
@@ -18,4 +18,3 @@ class SmallestPositiveIntegerVersion2Test extends AnyFunSuite {
     assert(smallestPositiveInteger(Array(4, 6, 7, 2)) == 1)
     assert(smallestPositiveInteger(Array(4, 6, 7, 1)) == 2)
   }
-}

@@ -3,7 +3,7 @@ package com.happysathya.playground
 import com.happysathya.playground.BinaryGap.binaryGap
 import org.scalatest.funsuite.AnyFunSuite
 
-class BinaryGapTest extends AnyFunSuite {
+class BinaryGapTest extends AnyFunSuite:
 
   test("BinaryGap") {
     assert(binaryGap(0) == 0)
@@ -12,4 +12,3 @@ class BinaryGapTest extends AnyFunSuite {
     assert(binaryGap(529) == 4)
     assert(binaryGap(15) == 0)
   }
-}

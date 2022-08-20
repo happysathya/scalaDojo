@@ -1,12 +1,12 @@
 package com.happysathya.playground.brise
 
 import cats.effect.{ExitCode, IO, IOApp}
-import cats.implicits._
+import cats.implicits.*
 
-object CatsEffectEvaluation extends IOApp {
+object CatsEffectEvaluation extends IOApp:
 
-  override def run(args: List[String]): IO[ExitCode] = {
-    for {
+  override def run(args: List[String]): IO[ExitCode] =
+    for
       _ <- startComputation("Requirement 1")
       _ <- task2DependentOnTask1AndTask4DependentOnTask3
       _ <- endComputation
@@ -18,49 +18,39 @@ object CatsEffectEvaluation extends IOApp {
       _ <- startComputation("Requirement 3")
       _ <- tasksIndependentOfEachOther
       _ <- endComputation
-    } yield ExitCode.Success
-  }
+    yield ExitCode.Success
 
-  def task3DependentOnTask2AndNotDependentOnTask1AndTask4: IO[Unit] = {
+  def task3DependentOnTask2AndNotDependentOnTask1AndTask4: IO[Unit] =
 
-    def task3DependentOnTask2: IO[Unit] = {
-      for {
+    def task3DependentOnTask2: IO[Unit] =
+      for
         _ <- task2
         _ <- task3
-      } yield ()
-    }
+      yield ()
 
-    for {
-      _ <- (task3DependentOnTask2, task1, task4).parTupled
-    } yield ()
-  }
+    for _ <- (task3DependentOnTask2, task1, task4).parTupled
+    yield ()
 
-  def task2DependentOnTask1AndTask4DependentOnTask3: IO[Unit] = {
+  def task2DependentOnTask1AndTask4DependentOnTask3: IO[Unit] =
 
-    def task2DependentOnTask1: IO[Unit] = {
-      for {
+    def task2DependentOnTask1: IO[Unit] =
+      for
         _ <- task1
         _ <- task2
-      } yield ()
-    }
+      yield ()
 
-    def task4DependentOnTask3: IO[Unit] = {
-      for {
+    def task4DependentOnTask3: IO[Unit] =
+      for
         _ <- task3
         _ <- task4
-      } yield ()
-    }
+      yield ()
 
-    for {
-      _ <- (task2DependentOnTask1, task4DependentOnTask3).parTupled
-    } yield ()
-  }
+    for _ <- (task2DependentOnTask1, task4DependentOnTask3).parTupled
+    yield ()
 
-  def tasksIndependentOfEachOther: IO[Unit] = {
-    for {
-      _ <- (task1, task2, task3, task4).parTupled
-    } yield ()
-  }
+  def tasksIndependentOfEachOther: IO[Unit] =
+    for _ <- (task1, task2, task3, task4).parTupled
+    yield ()
 
   def task1: IO[Unit] = IO {
     println("i am task1")
@@ -86,4 +76,4 @@ object CatsEffectEvaluation extends IOApp {
   def startComputation(requirement: String): IO[Unit] = IO {
     println(s"start computation - $requirement")
   }
-}
+end CatsEffectEvaluation

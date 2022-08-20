@@ -2,22 +2,20 @@ package com.happysathya.playground
 
 import scala.annotation.tailrec
 
-object SquareInRectangle {
+object SquareInRectangle:
 
-  def sqInRect(length: Int, width: Int): Array[Int] = {
+  def sqInRect(length: Int, width: Int): Array[Int] =
 
-    def min(length: Int, width: Int): Int = {
-      if (length < width) length else width
-    }
+    def min(length: Int, width: Int): Int =
+      if length < width then length else width
 
     @tailrec
-    def sqInRect(length: Int, width: Int, remainingArea: Int, acc: Array[Int]): Array[Int] = {
-      if (remainingArea == 0)
-        acc
-      else {
+    def sqInRect(length: Int, width: Int, remainingArea: Int, acc: Array[Int]): Array[Int] =
+      if remainingArea == 0 then acc
+      else
         val numberToBeSquared = min(length, width)
         val (newLength: Int, newWidth: Int) =
-          if (length > width) (length - numberToBeSquared, width)
+          if length > width then (length - numberToBeSquared, width)
           else (length, width - numberToBeSquared)
         sqInRect(
           newLength,
@@ -25,13 +23,6 @@ object SquareInRectangle {
           remainingArea - numberToBeSquared * numberToBeSquared,
           acc.appended(numberToBeSquared)
         )
-      }
-    }
 
-    if (length == width)
-      Array.emptyIntArray
-    else
-      sqInRect(length, width, length * width, Array.emptyIntArray)
-  }
-
-}
+    if length == width then Array.emptyIntArray
+    else sqInRect(length, width, length * width, Array.emptyIntArray)

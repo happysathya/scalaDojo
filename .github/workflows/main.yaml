@@ -1,4 +1,4 @@
-name: Scala CI
+name: Build and run test
 
 on:
   push:
@@ -17,5 +17,9 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 17
+
+    - name: Check code formatting
+      run: sbt scalafmtCheckAll
+
     - name: Run tests
       run: sbt test

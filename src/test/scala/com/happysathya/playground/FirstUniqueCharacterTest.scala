@@ -4,7 +4,7 @@ import com.happysathya.playground.FirstUniqueCharacter.findFirstUniqueCharacter
 import com.happysathya.playground.FirstUniqueCharacter.findFirstUniqueCharacterUsingLinkedHashMap
 import org.scalatest.funsuite.AnyFunSuite
 
-class FirstUniqueCharacterTest extends AnyFunSuite {
+class FirstUniqueCharacterTest extends AnyFunSuite:
 
   test("findFirstUniqueCharacter") {
     {
@@ -35,5 +35,4 @@ class FirstUniqueCharacterTest extends AnyFunSuite {
       assert(result.fold(identity, _ => throw new RuntimeException) == "No unique characters")
     }
   }
-
-}
+end FirstUniqueCharacterTest

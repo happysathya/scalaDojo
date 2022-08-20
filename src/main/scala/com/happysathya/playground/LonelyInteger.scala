@@ -1,8 +1,6 @@
 package com.happysathya.playground
 
-object LonelyInteger {
+object LonelyInteger:
 
-  def lonelyInteger(array: Array[Int]): Int = {
+  def lonelyInteger(array: Array[Int]): Int =
     array.foldLeft(0)((prev: Int, next: Int) => prev ^ next)
-  }
-}

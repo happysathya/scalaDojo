@@ -3,7 +3,7 @@ package com.happysathya.playground
 import com.happysathya.playground.MoveZerosToEnd.moveZerosToEnd
 import org.scalatest.funsuite.AnyFunSuite
 
-class MoveZerosToEndTest extends AnyFunSuite {
+class MoveZerosToEndTest extends AnyFunSuite:
 
   test("should move zeroes to end of list") {
     assert(moveZerosToEnd(List(1, 2, 3)) == List(1, 2, 3))
@@ -11,4 +11,3 @@ class MoveZerosToEndTest extends AnyFunSuite {
     assert(moveZerosToEnd(List("false", 0, 1, 0, 2)) == List("false", 1, 2, 0, 0))
     assert(moveZerosToEnd(List.empty) == List.empty)
   }
-}

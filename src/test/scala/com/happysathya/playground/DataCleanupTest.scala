@@ -3,7 +3,7 @@ package com.happysathya.playground
 import com.happysathya.playground.DataCleanup.{emailSpecialCharactersCleanup, mergeMaps}
 import org.scalatest.funsuite.AnyFunSuite
 
-class DataCleanupTest extends AnyFunSuite {
+class DataCleanupTest extends AnyFunSuite:
 
   test("should cleanup email special characters") {
     assert(emailSpecialCharactersCleanup("abcd@efg.com") == "abcd@efg.com")
@@ -16,8 +16,8 @@ class DataCleanupTest extends AnyFunSuite {
     assert(
       mergeMaps(
         Seq(
-          Map("100" -> 100, "11" -> 50), //union 1
-          Map("100" -> 200, "11" -> 50, "3" -> 50) //union 2
+          Map("100" -> 100, "11" -> 50), // union 1
+          Map("100" -> 200, "11" -> 50, "3" -> 50) // union 2
         ),
         100
       ) == 11
@@ -50,4 +50,4 @@ class DataCleanupTest extends AnyFunSuite {
      */
 
   }
-}
+end DataCleanupTest

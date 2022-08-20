@@ -3,7 +3,7 @@ package com.happysathya.playground
 import com.happysathya.playground.DataStructureDecisionForJava.decision
 import org.scalatest.funsuite.AnyFunSuite
 
-class DataStructureDecisionForJavaTest extends AnyFunSuite {
+class DataStructureDecisionForJavaTest extends AnyFunSuite:
 
   test("DataStructureDecisionForJava") {
     assert(decision(Problem(KeyValuePair, AnyOrdering)) == HashMap)
@@ -22,5 +22,3 @@ class DataStructureDecisionForJavaTest extends AnyFunSuite {
     assert(decision(Problem(ValuesWithoutDuplicates, SortedOrdering, SearchAndRemove)) == TreeSet)
 
   }
-
-}

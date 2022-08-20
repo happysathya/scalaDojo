@@ -25,27 +25,21 @@ case object HashSet       extends Decision
 
 case class Problem(data: Data, order: Order, task: Task = AnyTask)
 
-object DataStructureDecisionForJava {
+object DataStructureDecisionForJava:
 
-  def decision(problem: Problem): Decision = {
-    problem match {
+  def decision(problem: Problem): Decision =
+    problem match
       case Problem(KeyValuePair, order, _) =>
-        order match {
+        order match
           case InsertionOrdering => LinkedHashMap
           case SortedOrdering    => TreeMap
           case AnyOrdering       => HashMap
-        }
       case Problem(ValuesWithoutDuplicates, order, task) =>
-        (order, task) match {
+        (order, task) match
           case (_, AnyTask) => ArrayList
           case (order, SearchAndRemove) =>
-            order match {
+            order match
               case InsertionOrdering => LinkedHashSet
               case SortedOrdering    => TreeSet
               case AnyOrdering       => HashSet
-            }
-        }
       case Problem(ValuesWithDuplicates, _, _) => ArrayList
-    }
-  }
-}

@@ -5,12 +5,12 @@ import weaver.SimpleIOSuite
 
 import scala.language.implicitConversions
 
-object NodeTraversalTest extends SimpleIOSuite {
+object NodeTraversalTest extends SimpleIOSuite:
 
   implicit def _some(node: Node): Option[Node] = node.some
 
   test("traverse tree using recursion and mutable queue of a binary tree") {
-    for {
+    for
       result1 <- NodeTraversal.binaryTreeTraverseUsingRecursionAndMutableQueue(Node(10))
       result2 <- NodeTraversal.binaryTreeTraverseUsingRecursionAndMutableQueue(
         Node(10, Node(20), Node(30))
@@ -29,7 +29,7 @@ object NodeTraversalTest extends SimpleIOSuite {
           Node(30, Node(60), Node(70))
         )
       )
-    } yield expect.all(
+    yield expect.all(
       result1 == List(10),
       result2 == List(10, 20, 30),
       result3 == List(10, 20, 40, 50, 30, 60, 70),
@@ -38,7 +38,7 @@ object NodeTraversalTest extends SimpleIOSuite {
   }
 
   test("breadth first traversal of a binary tree") {
-    for {
+    for
       result1 <- NodeTraversal.breadthFirstTraversalBinaryTree(
         Node(
           10,
@@ -49,14 +49,14 @@ object NodeTraversalTest extends SimpleIOSuite {
       result2 <- NodeTraversal.breadthFirstTraversalBinaryTree(
         Node(10)
       )
-    } yield expect.all(
+    yield expect.all(
       result1 == List(10, 20, 30, 40, 50, 60, 70, 80, 90),
       result2 == List(10)
     )
   }
 
   test("depth first traversal of a binary tree") {
-    for {
+    for
       result1 <- NodeTraversal.depthFirstSearchBinaryTree(
         Node(
           1,
@@ -88,7 +88,7 @@ object NodeTraversalTest extends SimpleIOSuite {
           Node(7, None, Node(9, Node(8)))
         )
       )
-    } yield expect.all(
+    yield expect.all(
       result1 == List(1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12),
       result2 == List(10),
       result3 == List(1, 2, 3, 4, 5, 6, 8, 9, 10, 1, 2),
@@ -96,5 +96,4 @@ object NodeTraversalTest extends SimpleIOSuite {
       result5 == List(6, 2, 1, 4, 3, 5, 7, 9, 8)
     )
   }
-
-}
+end NodeTraversalTest

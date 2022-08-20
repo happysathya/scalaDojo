@@ -1,12 +1,10 @@
 package com.happysathya.playground
 
-object MoveZerosToEnd {
+object MoveZerosToEnd:
 
-  def moveZerosToEnd(list: List[Any]): List[Any] = {
+  def moveZerosToEnd(list: List[Any]): List[Any] =
     val (first, second) = list.partition {
       case a: Int if a == 0 => true
       case _                => false
     }
     second ++ first
-  }
-}

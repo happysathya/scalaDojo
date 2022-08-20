@@ -8,12 +8,10 @@ Given an array A of N integers, returns the smallest positive integer (greater t
 
 package com.happysathya.playground
 
-object SmallestPositiveIntegerVersion1 {
+object SmallestPositiveIntegerVersion1:
 
-  def smallestPositiveInteger(a: Iterable[Int]): Int = {
+  def smallestPositiveInteger(a: Iterable[Int]): Int =
     val rangeFrom1ToArraySize = Range.inclusive(1, a.size + 1)
     val setFrom1ToArraySize   = rangeFrom1ToArraySize.toSet
     val differenceSet         = setFrom1ToArraySize diff a.toSet
     differenceSet.min
-  }
-}

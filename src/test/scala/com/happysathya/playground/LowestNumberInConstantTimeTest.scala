@@ -2,7 +2,7 @@ package com.happysathya.playground
 
 import org.scalatest.funsuite.AnyFunSuite
 
-class LowestNumberInConstantTimeTest extends AnyFunSuite {
+class LowestNumberInConstantTimeTest extends AnyFunSuite:
 
   test("LowestNumberInConstantTime") {
     {
@@ -33,5 +33,4 @@ class LowestNumberInConstantTimeTest extends AnyFunSuite {
       assert(lowestNumberInConstantTime.lowestValue().get == 1)
     }
   }
-
-}
+end LowestNumberInConstantTimeTest

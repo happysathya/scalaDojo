@@ -1,8 +1,6 @@
 package com.happysathya.playground
 
-object UnPaired {
+object UnPaired:
 
-  def unpaired(a: Array[Int]): Int = {
+  def unpaired(a: Array[Int]): Int =
     a.reduceLeft(_ ^ _)
-  }
-}

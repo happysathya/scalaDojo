@@ -3,7 +3,7 @@ package com.happysathya.playground
 import com.happysathya.playground.FindWordPrecedenceRule.findWord
 import org.scalatest.funsuite.AnyFunSuite
 
-class FindWordPrecedenceRuleTest extends AnyFunSuite {
+class FindWordPrecedenceRuleTest extends AnyFunSuite:
 
   test("find the correct word using the precedence rule") {
     assert(findWord(List("P>E", "E>R", "R>U")) == "PERU")
@@ -17,4 +17,3 @@ class FindWordPrecedenceRuleTest extends AnyFunSuite {
       ) == "SWITZERLAND"
     )
   }
-}

@@ -2,7 +2,7 @@ package com.happysathya.playground
 
 import org.scalatest.funsuite.AnyFunSuite
 
-class ListCalculatorTest extends AnyFunSuite {
+class ListCalculatorTest extends AnyFunSuite:
 
   test("ListCalculator") {
     {
@@ -34,5 +34,4 @@ class ListCalculatorTest extends AnyFunSuite {
       assert(division == 0.06666666666666667)
     }
   }
-
-}
+end ListCalculatorTest

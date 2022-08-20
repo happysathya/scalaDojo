@@ -3,7 +3,7 @@ package com.happysathya.playground
 import com.happysathya.playground.IterablePairWithNextElement.pairWithNextElement
 import org.scalatest.funsuite.AnyFunSuite
 
-class IterablePairWithNextElementTest extends AnyFunSuite {
+class IterablePairWithNextElementTest extends AnyFunSuite:
 
   test("pair with next element") {
     assert(pairWithNextElement(List.empty[Int]) == List.empty)
@@ -12,4 +12,3 @@ class IterablePairWithNextElementTest extends AnyFunSuite {
     assert(pairWithNextElement(List(1, 2, 3)) == List((1, 2), (2, 3)))
     assert(pairWithNextElement(List(1, 2, 3, 4)) == List((1, 2), (2, 3), (3, 4)))
   }
-}
