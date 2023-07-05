@@ -6,7 +6,7 @@ import weaver.SimpleIOSuite
 
 object KleisliDojoTest extends SimpleIOSuite {
 
-  test("ds") {
+  test("using kleisli to compose functions") {
     for {
       input <- IO.pure(10)
       doubleKleisli   = Kleisli[IO, Int, Int]((a: Int) => IO.pure(a * a))
