@@ -1,4 +1,4 @@
-name: Build and run test
+name: :alarm: Build and run test
 
 on:
   push:
