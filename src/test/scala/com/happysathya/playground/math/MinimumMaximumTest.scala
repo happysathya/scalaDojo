@@ -1,6 +1,6 @@
 package com.happysathya.playground.math
 
-import com.happysathya.playground.MinimumMaximumSum.minimumMaximumSum
+import com.happysathya.playground.math.MinimumMaximumSum.minimumMaximumSum
 import org.scalatest.funsuite.AnyFunSuite
 
 class MinimumMaximumTest extends AnyFunSuite:
