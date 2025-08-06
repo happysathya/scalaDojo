@@ -17,7 +17,7 @@ object ProcessLogs:
               val recipientCount = acc.getOrElse(recipientId, 0)
               processLogsInline(
                 logs.tail,
-                acc + (senderId -> (senderCount + 1), recipientId -> (recipientCount + 1))
+                acc ++ Map(senderId -> (senderCount + 1), recipientId -> (recipientCount + 1))
               )
             case _ => processLogsInline(logs.tail, acc)
         case None => acc

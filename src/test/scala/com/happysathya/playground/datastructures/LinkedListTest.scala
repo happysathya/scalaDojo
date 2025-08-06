@@ -1,6 +1,5 @@
 package com.happysathya.playground.datastructures
 
-import com.happysathya.playground.utilities.ProcessLogs.processLogs
 import weaver.FunSuite
 
 object LinkedListTest extends FunSuite:

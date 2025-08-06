@@ -17,5 +17,6 @@ object IncrementNumber:
           val sum                 = head + carry
           val (newItem, newCarry) = (sum % 10, sum / 10)
           increment(tail, newItem +: acc, newCarry)
+        case _ => IO(acc) // This should never happen, but included for exhaustiveness
 
     increment(seq.reverse, Seq.empty, 1)

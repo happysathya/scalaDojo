@@ -10,8 +10,8 @@ object StringToCamelCase:
     def singleWordToCamelCase(word: String): String =
       word.toList match
         case ::(head, tail) =>
-          if tail.nonEmpty then head.toUpper + concat(tail)
-          else head + ""
+          if tail.nonEmpty then s"${head.toUpper}${concat(tail)}"
+          else head.toString
         case Nil => ""
 
     str.split("[-_]").toList match
